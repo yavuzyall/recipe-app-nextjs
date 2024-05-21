@@ -1,0 +1,95 @@
+/* src/styles/components/Header.module.scss */
+.headerBox {
+    background-color: #EDE7DC;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 3;
+}
+
+.logoText{
+    font-size: 20px;
+}
+
+.menuWrapper{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    flex: 7;
+    gap: 4rem;
+
+    .menuElements{
+        display: flex;
+        align-items: center;
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            li{
+                cursor: pointer;
+                border: 1px solid black;
+                border-radius: 50px;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+
+                a{
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                &:hover{
+                    border: 1px solid transparent;
+                    color: white;
+                    background-color: #CCAFA5;
+                }
+            }
+        }
+    }
+
+    .profileWrapper{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .iconWrapper{
+            font-size: 22px;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 2px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #CCAFA5;
+                color: white;
+            }
+        }
+
+        .profileBox{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            background-color: #CCAFA5;
+            display: flex;
+            overflow: hidden;
+
+            img{
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
