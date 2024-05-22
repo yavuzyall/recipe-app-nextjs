@@ -1,8 +1,28 @@
+"use client";
+import { getAllRecipes } from "@/services/recipeService";
 import "../styles/HomePage.scss";
+import RecipeList from "@/components/RecipeList";
+import Recipe from "@/types/recipe";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const allRecipes = await getAllRecipes();
+        setRecipes(allRecipes.recipes);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
+
   return (
-    <main className="main">
+    <div className="mainDiv">
       <div className="formDiv">
         <form>
           <select name="foodSelector" id="foodSelector">
@@ -18,7 +38,9 @@ export default function Home() {
           </div>
         </form>
       </div>
-      <div></div>
-    </main>
+      <div>
+        <RecipeList recipes={recipes} />
+      </div>
+    </div>
   );
 }
